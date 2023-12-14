@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>6.0</ProjectVersion>
+    <ToolchainName>com.Atmel.AVRGCC8</ToolchainName>
+    <ProjectGuid>{96635881-beb8-4ce5-859b-27f34cdda4f7}</ProjectGuid>
+    <avrdevice>ATmega32</avrdevice>
+    <avrdeviceseries>none</avrdeviceseries>
+    <OutputType>Executable</OutputType>
+    <Language>C</Language>
+    <OutputFileName>$(MSBuildProjectName)</OutputFileName>
+    <OutputFileExtension>.elf</OutputFileExtension>
+    <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
+    <AssemblyName>Autonomous_Car_With_ESP32</AssemblyName>
+    <Name>Autonomous_Car_With_ESP32</Name>
+    <RootNamespace>Autonomous_Car_With_ESP32</RootNamespace>
+    <ToolchainFlavour>Native</ToolchainFlavour>
+    <KeepTimersRunning>true</KeepTimersRunning>
+    <OverrideVtor>false</OverrideVtor>
+    <OverrideVtorValue />
+    <eraseonlaunchrule>0</eraseonlaunchrule>
+    <AsfVersion>3.5.0</AsfVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <ToolchainSettings>
+      <AvrGcc>
+  <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+  <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+  <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+  <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
+  <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
+  <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+  <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
+  <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+  <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+  <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+  <avrgcc.linker.libraries.Libraries>
+    <ListValues>
+      <Value>m</Value>
+    </ListValues>
+  </avrgcc.linker.libraries.Libraries>
+</AvrGcc>
+    </ToolchainSettings>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <ToolchainSettings>
+      <AvrGcc>
+  <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+  <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+  <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+  <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
+  <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
+  <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+  <avrgcc.compiler.optimization.level>Optimize (-O1)</avrgcc.compiler.optimization.level>
+  <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+  <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+  <avrgcc.compiler.optimization.DebugLevel>Default (-g2)</avrgcc.compiler.optimization.DebugLevel>
+  <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+  <avrgcc.linker.libraries.Libraries>
+    <ListValues>
+      <Value>m</Value>
+    </ListValues>
+  </avrgcc.linker.libraries.Libraries>
+  <avrgcc.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcc.assembler.debugging.DebugLevel>
+</AvrGcc>
+    </ToolchainSettings>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="APP\Autonomous_Car_With_ESP32.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\BUTTON\include\BUTTON_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\BUTTON\include\BUTTON_interface.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\BUTTON\include\BUTTON_private.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\BUTTON\src\BUTTON_program.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\BUZZER\include\BUZZER_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\BUZZER\include\BUZZER_interface.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\BUZZER\include\BUZZER_private.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\BUZZER\src\BUZZER_program.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\ESP32\include\ESP32_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\ESP32\include\ESP32_interface.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\ESP32\include\ESP32_private.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\ESP32\src\ESP32_progarm.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\LCD\include\LCD_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\LCD\include\LCD_interface.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\LCD\include\LCD_private.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\LCD\src\LCD_program.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\LED\include\LED_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\LED\include\LED_interface.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\LED\include\LED_private.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\LED\src\LED_program.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\MOTOR\include\MOTOR_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\MOTOR\include\MOTOR_interface.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\MOTOR\include\MOTOR_private.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\MOTOR\src\MOTOR_program.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\SERVO\include\SERVO_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\SERVO\include\SERVO_interface.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\SERVO\include\SERVO_private.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\SERVO\src\SERVO_program.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\ULTRASONIC\include\ULTRASONIC_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\ULTRASONIC\include\ULTRASONIC_interface.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\ULTRASONIC\include\ULTRASONIC_private.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\ULTRASONIC\src\ULTRASONIC_program.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\DIO\include\DIO_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\DIO\include\DIO_interface.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\DIO\include\DIO_private.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\DIO\src\DIO_program.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\EXTERNAL_INTERRUPT\include\EXTI_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\EXTERNAL_INTERRUPT\include\EXTI_interface.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\EXTERNAL_INTERRUPT\include\EXTI_private.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\EXTERNAL_INTERRUPT\src\EXTI_program.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\GLOBAL_INTERRUPT\include\GLBI_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\GLOBAL_INTERRUPT\include\GLBI_interfase.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\GLOBAL_INTERRUPT\include\GLBI_private.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\GLOBAL_INTERRUPT\src\GLBI_program.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\TIMER0\include\TIMER0_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\TIMER0\include\TIMER0_interface.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\TIMER0\include\TIMER0_private.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\TIMER0\src\TIMER0_program.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\TIMER1\include\TIMER1_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\TIMER1\include\TIMER1_interface.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\TIMER1\include\TIMER1_private.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\TIMER1\src\TIMER1_program.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\TIMER2\include\TMR2_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\TIMER2\include\TMR2_interface.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\TIMER2\include\TMR2_private.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\TIMER2\src\TMR2_program.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\UART\include\UART_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\UART\include\UART_interface.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\UART\include\UART_private.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\UART\src\UART_program.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UTILITES\BIT_MATH.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UTILITES\STD_TYPE.h">
+      <SubType>compile</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="APP" />
+    <Folder Include="HAL" />
+    <Folder Include="HAL\BUTTON" />
+    <Folder Include="HAL\BUTTON\include" />
+    <Folder Include="HAL\BUTTON\src" />
+    <Folder Include="HAL\BUZZER" />
+    <Folder Include="HAL\BUZZER\include\" />
+    <Folder Include="HAL\BUZZER\src\" />
+    <Folder Include="HAL\ESP32\include\" />
+    <Folder Include="HAL\ESP32\src\" />
+    <Folder Include="HAL\LCD" />
+    <Folder Include="HAL\LCD\include\" />
+    <Folder Include="HAL\LCD\src\" />
+    <Folder Include="HAL\LED" />
+    <Folder Include="HAL\LED\include\" />
+    <Folder Include="HAL\LED\src\" />
+    <Folder Include="HAL\MOTOR" />
+    <Folder Include="HAL\MOTOR\include\" />
+    <Folder Include="HAL\MOTOR\src\" />
+    <Folder Include="HAL\SERVO" />
+    <Folder Include="HAL\SERVO\include\" />
+    <Folder Include="HAL\SERVO\src\" />
+    <Folder Include="HAL\ULTRASONIC" />
+    <Folder Include="HAL\ESP32" />
+    <Folder Include="HAL\ULTRASONIC\include\" />
+    <Folder Include="HAL\ULTRASONIC\src\" />
+    <Folder Include="MCAL" />
+    <Folder Include="MCAL\DIO" />
+    <Folder Include="MCAL\DIO\include\" />
+    <Folder Include="MCAL\DIO\src\" />
+    <Folder Include="MCAL\EXTERNAL_INTERRUPT" />
+    <Folder Include="MCAL\EXTERNAL_INTERRUPT\include\" />
+    <Folder Include="MCAL\EXTERNAL_INTERRUPT\src\" />
+    <Folder Include="MCAL\GLOBAL_INTERRUPT" />
+    <Folder Include="MCAL\GLOBAL_INTERRUPT\include\" />
+    <Folder Include="MCAL\GLOBAL_INTERRUPT\src\" />
+    <Folder Include="MCAL\TIMER0\include\" />
+    <Folder Include="MCAL\TIMER0\src\" />
+    <Folder Include="MCAL\TIMER1\include\" />
+    <Folder Include="MCAL\TIMER1\src\" />
+    <Folder Include="MCAL\TIMER2" />
+    <Folder Include="MCAL\TIMER1" />
+    <Folder Include="MCAL\TIMER0" />
+    <Folder Include="MCAL\TIMER2\include\" />
+    <Folder Include="MCAL\TIMER2\src\" />
+    <Folder Include="MCAL\UART" />
+    <Folder Include="MCAL\UART\include\" />
+    <Folder Include="MCAL\UART\src\" />
+    <Folder Include="UTILITES" />
+  </ItemGroup>
+  <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
+</Project>
