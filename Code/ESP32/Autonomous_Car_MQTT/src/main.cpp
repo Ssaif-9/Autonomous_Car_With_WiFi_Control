@@ -4,10 +4,11 @@
 #include <PubSubClient.h>
 
 char Navigation;
-String Distance;
+char Disition;
+String message;
 
-const char *ssid = "Saif_sultan";
-const char *password = "12345678s";
+const char *ssid = "TE DATA";
+const char *password = "S9S26#s25s1";
 
 const char *mqtt_server = "b37.mqtt.one";
 
@@ -97,10 +98,12 @@ void loop() {
     reconnect();
   }
   client.loop();
-
+/*
   if (SerialUART.available())
   {
-    Distance = SerialUART.readStringUntil('\n');
-    client.publish(mqtt_topic_to_publish, Distance.c_str());
+    Disition = SerialUART.read();
+    message = String(Disition);
+    client.publish(mqtt_topic_to_publish,message.c_str());
   }
+  */
 }

@@ -7,7 +7,7 @@ APP/Autonomous_Car_With_ESP32.d APP/Autonomous_Car_With_ESP32.o: \
  c:\program\ files\ (x86)\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.1.95\avrtoolchain\bin\../lib/gcc/avr/4.6.2/../../../../avr/include/util/delay_basic.h \
  c:\program\ files\ (x86)\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.1.95\avrtoolchain\bin\../lib/gcc/avr/4.6.2/../../../../avr/include/math.h \
  ../APP/../UTILITES/BIT_MATH.h ../APP/../UTILITES/STD_TYPE.h \
- ../APP/../Helper/Helper.h ../APP/../MCAL/DIO/include/DIO_config.h \
+ ../APP/../MCAL/DIO/include/DIO_config.h \
  ../APP/../MCAL/DIO/include/DIO_interface.h \
  ../APP/../MCAL/UART/include/UART_config.h \
  ../APP/../MCAL/UART/include/UART_interface.h \
@@ -26,8 +26,6 @@ APP/Autonomous_Car_With_ESP32.d APP/Autonomous_Car_With_ESP32.o: \
  ../APP/../HAL/BUZZER/include/BUZZER_interface.h \
  ../APP/../HAL/BUTTON/include/BUTTON_config.h \
  ../APP/../HAL/BUTTON/include/BUTTON_interface.h \
- ../APP/../HAL/LCD/include/LCD_config.h \
- ../APP/../HAL/LCD/include/LCD_interface.h \
  ../APP/../HAL/LED/include/LED_config.h \
  ../APP/../HAL/LED/include/LED_interface.h \
  ../APP/../HAL/MOTOR/include/MOTOR_config.h \
@@ -52,8 +50,6 @@ c:\program\ files\ (x86)\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.1.
 ../APP/../UTILITES/BIT_MATH.h:
 
 ../APP/../UTILITES/STD_TYPE.h:
-
-../APP/../Helper/Helper.h:
 
 ../APP/../MCAL/DIO/include/DIO_config.h:
 
@@ -92,10 +88,6 @@ c:\program\ files\ (x86)\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.1.
 ../APP/../HAL/BUTTON/include/BUTTON_config.h:
 
 ../APP/../HAL/BUTTON/include/BUTTON_interface.h:
-
-../APP/../HAL/LCD/include/LCD_config.h:
-
-../APP/../HAL/LCD/include/LCD_interface.h:
 
 ../APP/../HAL/LED/include/LED_config.h:
 

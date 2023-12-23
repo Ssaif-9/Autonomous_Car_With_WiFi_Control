@@ -12,7 +12,6 @@
 #include "../UTILITES/BIT_MATH.h"
 #include "../UTILITES/STD_TYPE.h"
 
-#include "../Helper/Helper.h"
 
 /****** MCAL *******/
 #include "../MCAL/DIO/include/DIO_config.h"
@@ -45,9 +44,6 @@
 #include "../HAL/BUTTON/include/BUTTON_config.h"
 #include "../HAL/BUTTON/include/BUTTON_interface.h"
 
-#include "../HAL/LCD/include/LCD_config.h"
-#include "../HAL/LCD/include/LCD_interface.h"
-
 #include "../HAL/LED/include/LED_config.h"
 #include "../HAL/LED/include/LED_interface.h"
 
@@ -60,16 +56,16 @@
 #include "../HAL/SERVO/include/SERVO_config.h"
 #include "../HAL/SERVO/include/SERVO_interface.h"
 
-void WiFiMode_SuperLoop       (void);
-void UltraSonicMode_SuperLoop (void);
+void WiFiMode_SuperLoop              (void);
+void UltraSonicMode_SuperLoop        (void);
 
-#define ULTRASONIC_MODE  0
-#define WIFI_MODE        1
+#define ULTRASONIC_MODE              0
+#define WIFI_MODE                    1
 
 static u16 Speed=35;
 
-#define MAX_SPEED                         100
-#define MIN_SPEED                         0
+#define MAX_SPEED                    100
+#define MIN_SPEED                    0
 
 
 int main(void)
@@ -81,8 +77,6 @@ int main(void)
 	BUTTON_init(BUTTON_MODE_PORT,BUTTON_MODE_PIN);
 	BUTTON_ReadValue(BUTTON_MODE_PORT,BUTTON_MODE_PIN,&ModeValue,BUTTON_PullDown);
 	
-	ESP32_init();
-	//LCD_init();
 	WHEEL_Init();
 	WHEEL_MoveForward();
 	WHEEL_SendDutyCycleAndStart(Speed);
@@ -90,7 +84,6 @@ int main(void)
 	SERVO_init();
 	SERVO_TurnON(FORWARD_Angle);
 	
-	Ultrasonic_init();
 	
 	LED_init(LED_BACK_PORT,LED_BACK_PIN);
 	LED_init(LED_FORWARD_RIGHT_PORT,LED_FORWARD_RIGHT_PIN);
@@ -105,20 +98,24 @@ int main(void)
 	BUZZER_TurnOff(BUZZER_PORT,BUZZER_PIN);
 	
 	
+	
 	if (ULTRASONIC_MODE == ModeValue)
 	{
- 	
+		
+		Ultrasonic_init();
 		UltraSonicMode_SuperLoop();
 	}
 	else
 	{
-		
+		ESP32_init();
 		WiFiMode_SuperLoop();
 	}	
+	
 }
 
 void WiFiMode_SuperLoop()
 {
+	WHEEL_Stop ();
 	u8 WiFiValue;
 	while(1)
 	{	
@@ -235,11 +232,13 @@ void UltraSonicMode_SuperLoop()
 	 f64 UltraSonic_ForwardValue;
 	 f64 UltraSonic_RightValue;
 	 f64 UltraSonic_LeftValue;
+	 
+	 
 	while(1)
 	{
 		Ultrasonic_ReadDistance(&UltraSonic_ForwardValue);
 		
-		if (UltraSonic_ForwardValue>30.00)
+		if ( UltraSonic_ForwardValue>30.00)
 		{
 			WHEEL_MoveForward();
 		}
@@ -258,12 +257,14 @@ void UltraSonicMode_SuperLoop()
 			SERVO_TurnON(RIGHT_Angle);
 			
 			Ultrasonic_ReadDistance(&UltraSonic_RightValue);
+			
+
 			_delay_ms(500);
 			// Measure Distance At Left
 			SERVO_TurnON(LEFT_Angle);
 		
 			Ultrasonic_ReadDistance(&UltraSonic_LeftValue);
-	
+		
 			_delay_ms(500);
 			if (UltraSonic_RightValue > UltraSonic_LeftValue)
 			{
@@ -271,6 +272,7 @@ void UltraSonicMode_SuperLoop()
 				SERVO_TurnON(FORWARD_Angle);
 				_delay_ms(100);
 				WHEEL_MoveForwardRight();
+
 				LED_TurnON(LED_FORWARD_RIGHT_PORT,LED_FORWARD_RIGHT_PIN);
 				_delay_ms(500);
 				LED_TurnOFF(LED_FORWARD_RIGHT_PORT,LED_FORWARD_RIGHT_PIN);
@@ -283,10 +285,14 @@ void UltraSonicMode_SuperLoop()
 				SERVO_TurnON(FORWARD_Angle);
 				_delay_ms(100);
 				WHEEL_MoveForwardleft();
+				
 				LED_TurnON(LED_FORWARD_LEFT_PORT,LED_FORWARD_LEFT_PIN);
+				
 				_delay_ms(500);
 				LED_TurnOFF(LED_FORWARD_LEFT_PORT,LED_FORWARD_LEFT_PIN);
+			
 				WHEEL_Stop();
+				
 			}
 		}
 		_delay_ms(500);

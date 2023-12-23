@@ -10,8 +10,6 @@ HAL\BUZZER\src\BUZZER_program.c
 
 HAL\ESP32\src\ESP32_progarm.c
 
-HAL\LCD\src\LCD_program.c
-
 HAL\LED\src\LED_program.c
 
 HAL\MOTOR\src\MOTOR_program.c
@@ -19,8 +17,6 @@ HAL\MOTOR\src\MOTOR_program.c
 HAL\SERVO\src\SERVO_program.c
 
 HAL\ULTRASONIC\src\ULTRASONIC_program.c
-
-Helper\Helper.c
 
 MCAL\DIO\src\DIO_program.c
 
