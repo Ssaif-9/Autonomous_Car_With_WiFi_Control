@@ -7,7 +7,7 @@ APP/Autonomous_Car_With_ESP32.d APP/Autonomous_Car_With_ESP32.o: \
  c:\program\ files\ (x86)\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.1.95\avrtoolchain\bin\../lib/gcc/avr/4.6.2/../../../../avr/include/util/delay_basic.h \
  c:\program\ files\ (x86)\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.1.95\avrtoolchain\bin\../lib/gcc/avr/4.6.2/../../../../avr/include/math.h \
  ../APP/../UTILITES/BIT_MATH.h ../APP/../UTILITES/STD_TYPE.h \
- ../APP/../MCAL/DIO/include/DIO_config.h \
+ ../APP/../Helper/Helper.h ../APP/../MCAL/DIO/include/DIO_config.h \
  ../APP/../MCAL/DIO/include/DIO_interface.h \
  ../APP/../MCAL/UART/include/UART_config.h \
  ../APP/../MCAL/UART/include/UART_interface.h \
@@ -52,6 +52,8 @@ c:\program\ files\ (x86)\atmel\atmel\ studio\ 6.0\extensions\atmel\avrgcc\3.4.1.
 ../APP/../UTILITES/BIT_MATH.h:
 
 ../APP/../UTILITES/STD_TYPE.h:
+
+../APP/../Helper/Helper.h:
 
 ../APP/../MCAL/DIO/include/DIO_config.h:
 

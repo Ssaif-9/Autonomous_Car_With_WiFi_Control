@@ -79,6 +79,7 @@ SUBDIRS :=  \
 ../MCAL/UART \
 ../MCAL/UART/include/ \
 ../MCAL/UART/src/ \
+../Helper \
 ../UTILITES
 
 
@@ -93,6 +94,7 @@ C_SRCS +=  \
 ../HAL/MOTOR/src/MOTOR_program.c \
 ../HAL/SERVO/src/SERVO_program.c \
 ../HAL/ULTRASONIC/src/ULTRASONIC_program.c \
+../Helper/Helper.c \
 ../MCAL/DIO/src/DIO_program.c \
 ../MCAL/EXTERNAL_INTERRUPT/src/EXTI_program.c \
 ../MCAL/GLOBAL_INTERRUPT/src/GLBI_program.c \
@@ -118,6 +120,7 @@ HAL/LED/src/LED_program.o \
 HAL/MOTOR/src/MOTOR_program.o \
 HAL/SERVO/src/SERVO_program.o \
 HAL/ULTRASONIC/src/ULTRASONIC_program.o \
+Helper/Helper.o \
 MCAL/DIO/src/DIO_program.o \
 MCAL/EXTERNAL_INTERRUPT/src/EXTI_program.o \
 MCAL/GLOBAL_INTERRUPT/src/GLBI_program.o \
@@ -137,6 +140,7 @@ HAL/LED/src/LED_program.o \
 HAL/MOTOR/src/MOTOR_program.o \
 HAL/SERVO/src/SERVO_program.o \
 HAL/ULTRASONIC/src/ULTRASONIC_program.o \
+Helper/Helper.o \
 MCAL/DIO/src/DIO_program.o \
 MCAL/EXTERNAL_INTERRUPT/src/EXTI_program.o \
 MCAL/GLOBAL_INTERRUPT/src/GLBI_program.o \
@@ -156,6 +160,7 @@ HAL/LED/src/LED_program.d \
 HAL/MOTOR/src/MOTOR_program.d \
 HAL/SERVO/src/SERVO_program.d \
 HAL/ULTRASONIC/src/ULTRASONIC_program.d \
+Helper/Helper.d \
 MCAL/DIO/src/DIO_program.d \
 MCAL/EXTERNAL_INTERRUPT/src/EXTI_program.d \
 MCAL/GLOBAL_INTERRUPT/src/GLBI_program.d \
@@ -175,6 +180,7 @@ HAL/LED/src/LED_program.d \
 HAL/MOTOR/src/MOTOR_program.d \
 HAL/SERVO/src/SERVO_program.d \
 HAL/ULTRASONIC/src/ULTRASONIC_program.d \
+Helper/Helper.d \
 MCAL/DIO/src/DIO_program.d \
 MCAL/EXTERNAL_INTERRUPT/src/EXTI_program.d \
 MCAL/GLOBAL_INTERRUPT/src/GLBI_program.d \
@@ -193,6 +199,8 @@ ADDITIONAL_DEPENDENCIES:=
 OUTPUT_FILE_DEP:= ./makedep.mk
 
 # AVR32/GNU C Compiler
+
+
 
 
 
@@ -275,6 +283,12 @@ HAL/SERVO/src/%.o: ../HAL/SERVO/src/%.c
 	@echo Finished building: $<
 
 HAL/ULTRASONIC/src/%.o: ../HAL/ULTRASONIC/src/%.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.1_830) 4.6.2
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32   -o"$@" "$<" 
+	@echo Finished building: $<
+
+Helper/%.o: ../Helper/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.1_830) 4.6.2
 	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32   -o"$@" "$<" 

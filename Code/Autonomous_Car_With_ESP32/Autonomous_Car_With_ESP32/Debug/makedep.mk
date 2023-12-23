@@ -20,6 +20,8 @@ HAL\SERVO\src\SERVO_program.c
 
 HAL\ULTRASONIC\src\ULTRASONIC_program.c
 
+Helper\Helper.c
+
 MCAL\DIO\src\DIO_program.c
 
 MCAL\EXTERNAL_INTERRUPT\src\EXTI_program.c

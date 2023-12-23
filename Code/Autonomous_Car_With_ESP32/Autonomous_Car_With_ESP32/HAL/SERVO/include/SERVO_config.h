@@ -10,9 +10,9 @@
 #define SERVO_CONFIG_H_
 
 
-#define LEFT_Angle         0
+#define LEFT_Angle         180
 #define FORWARD_Angle      90
-#define RIGHT_Angle        180
+#define RIGHT_Angle        0
 
 
 
